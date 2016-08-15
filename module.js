@@ -1,23 +1,27 @@
 module.exports =  {
 	request : require('request'),
-	searchIMDB : function (name) {
+	searchIMDB : function (name, cb) {
 		name = name;
 
 		this.request('http://omdbapi.com/?s=' + name, function(err,  res, body) {
 			var data = JSON.parse(body);
-			data.Search.forEach(function(s) {
-				console.log(s.Title);
-
-			});
-
+			cb(data);
 		});
 	},
 
-	getByName : function(name) {
+	getByName : function(name, cb) {
 		name = name;
 		this.request('http://omdbapi.com/?t=' + name, function(err, res, body) {
 			var data = JSON.parse(body);
-			console.log(data)
+			cb(data);
+		});
+	},
+
+	getById : function(name, cb){
+		name = name;
+		this.request('http://omdbapi.com/?i=' + name, function(err, res, body) {
+			var data = JSON.parse(body);
+			cb(data);
 		});
 	}
 	
