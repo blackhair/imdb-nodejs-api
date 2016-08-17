@@ -14,6 +14,7 @@ This module requires  following packages to be installed :
 To install this module, run these commands:
 
     $ git clone https://github.com/blackhair/imdb-nodejs-api.git
+    cd imdb-nodejs-api
     $ npm install
 Now you can use the package's methode by running it : 
     
